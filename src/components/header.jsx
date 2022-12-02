@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { MdOutlineMenu } from 'react-icons/md'
+import { FaShoppingBag } from 'react-icons/fa'
+import { HiOutlineUserCircle } from 'react-icons/hi'
 
 const menuItems = [
    {
@@ -7,7 +9,7 @@ const menuItems = [
       link: '#'
    },
    {
-      name: 'Contacts',
+      name: 'Categories',
       link: '#'
    },
    {
@@ -21,21 +23,22 @@ const menuItems = [
 ]
 const Header = () => {
    const [selectedMenu, setSelectedMenu] = useState('Products')
+   const [bagItemNumber, setBagItemNumber] = useState(0)
    return (
-      <div className=" text-white h-20 pl-20 pr-20 bg-main_color  " >
+      <div className=" text-white  h-16 pl-[5vw] pr-[5vw] bg-main_color bg-opacity-50 fixed w-[100vw] " >
          <div className=' flex justify-between items-center p-5 ' >
             <p className=' font-body text-white font-extrabold text-xl ' >E-Commerce</p>
-            <div className=' flex gap-10  ' >
+            <div className=' hidden sm:flex gap-10 items-start  ' >
                {
                   menuItems.map((elt, index) => {
                      return (
                         <div className=' flex text-xs justify-center items-center gap-1 flex-col ' >
                            <a onClick={() => setSelectedMenu(elt.name)}
-                              className= {elt.name == selectedMenu ? 'text-white font-bold' : 'font-thin' }
+                              className={elt.name == selectedMenu ? 'transition-all text-white font-bold' : 'font-thin'}
                               href={elt.link}>{elt.name}</a>
                            {
                               elt.name == selectedMenu &&
-                              <div className=' bg-white w-1 h-1 rounded-full ' ></div>
+                              <div className=' bg-white w-1  transition-all h-1 rounded-full ' ></div>
                            }
                         </div>
 
@@ -43,7 +46,13 @@ const Header = () => {
                   })
                }
             </div>
-            <MdOutlineMenu color='#fff' size={30} />
+            <div className=' flex items-center justify-center gap-5' >
+               <div className=' flex gap-2 ' >
+               <FaShoppingBag size={20} />
+                  {bagItemNumber}
+               </div>
+            </div>
+            <MdOutlineMenu color='#fff' className='sm:hidden cursor-pointer ' size={30} />
          </div>
       </div>
    )
