@@ -1,11 +1,12 @@
 import { useState } from 'react'
+import Header from './components/header'
+import Product from './components/product'
 
 function App() {
   return (
-    <div className="App">
-      <h1 className=' font-extrabold ' >
-        Welcom to our product Page ...
-      </h1>
+    <div className="font-paragraph flex flex-col">
+      <Header />
+      <Product />
     </div>
   )
 }
