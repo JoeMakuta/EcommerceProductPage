@@ -5,6 +5,7 @@ import { AiFillStar, AiOutlineStar } from 'react-icons/ai'
 import { products } from "../assets/store"
 import ZoomImage from './zoomImage'
 import ImageModal from "./imageModal"
+import Hamberger from "./humberger"
 
 const Product = () => {
    const [product, setProduct] = useState(products[2])
@@ -25,6 +26,7 @@ const Product = () => {
             <ImageModal showModal={showModal} setShowModal={setShowModal} image={product.image} />
          </div> */}
          <ZoomImage image={product.image} />
+        
 
          <div className="flex flex-col justify-center items-center gap-4 sm:gap-9" >
             <div className=" flex flex-col items-center gap-1 sm:gap-4 " >
@@ -72,8 +74,8 @@ const Product = () => {
             <div className=" flex gap-4" >
 
                <button
-                  className=" active:bg-main_color w-40 h-12 animate-pulse bg-green rounded-xl text-white  " >
-                  Add to Bag
+                  className=" active:bg-main_color w-40 h-12 animate-pulse bg-green  text-white mb-5  " >
+                  Add to Cart
                </button>
                {/* <input
                   type="number"
@@ -90,7 +92,7 @@ const Product = () => {
                   }}
                   className={showDescription ?
                      " flex justify-between p-4 items-center  text-sm w-full sm:w-[35vw]  h-10 border-[1px] rounded-t-lg border-b-0 border-gray bg-gray bg-opacity-40 " :
-                     " flex justify-between p-4 items-center  text-sm w-full sm:w-[35vw] h-10 border-[1px] rounded-lg border-gray "} >
+                     " flex justify-between p-4 items-center  text-sm w-[85vw] sm:w-[35vw] h-10 border-[1px] rounded-lg border-gray "} >
 
                   Description
 

@@ -103,7 +103,7 @@ const ZoomImage = ({ image }) => {
    }, [zoom, offset]);
 
    return (
-      <div className='cursor-grab sm:w-[35vw] ' ref={containerRef}>
+      <div className='cursor-grab w-full sm:w-[35vw] ' ref={containerRef}>
          <canvas
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
