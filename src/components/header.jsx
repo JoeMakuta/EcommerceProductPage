@@ -25,7 +25,7 @@ const Header = () => {
    const [selectedMenu, setSelectedMenu] = useState('Products')
    const [bagItemNumber, setBagItemNumber] = useState(0)
    return (
-      <div className=" text-white  h-16 pl-[5vw] pr-[5vw] bg-main_color bg-opacity-50 fixed w-[100vw] " >
+      <div className="   h-16 pl-[5vw] pr-[5vw] bg-main_color bg-opacity-30 fixed w-[100vw] " >
          <div className=' flex justify-between items-center p-5 ' >
             <p className=' font-body text-white font-extrabold text-xl ' >E-Commerce</p>
             <div className=' hidden sm:flex gap-10 items-start  ' >

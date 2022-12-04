@@ -5,15 +5,18 @@ module.exports = {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+
     fontFamily: {
       'body': ['Darker Grotesque'],
       'paragraph': ['Manrope']
     },
-    extend: {},
-    colors: {
-      'white': '#ffffff',
-      'main_color': '#001906',
-      'gray' : '#BDBDBD'
+    extend: {
+      colors: {
+        'white': '#ffffff',
+        'main_color': '#001906',
+        'gray': '#BDBDBD',
+        'green': '#41982A'
+      },
     },
   },
   plugins: [],

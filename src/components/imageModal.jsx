@@ -1,6 +1,4 @@
-
-
-const ToggleProducts = () => {
+const ImageModal = () => {
    return (
       <div>
          
