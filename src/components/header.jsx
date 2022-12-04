@@ -3,8 +3,9 @@ import { MdOutlineMenu } from 'react-icons/md'
 import { FaShoppingBag } from 'react-icons/fa'
 import { HiOutlineUserCircle } from 'react-icons/hi'
 import { FiSearch } from 'react-icons/fi'
+import Hamberger from './humberger'
 
-const menuItems = [
+export const menuItems = [
    {
       name: 'Products',
       link: '#'
@@ -13,22 +14,24 @@ const menuItems = [
       name: 'Categories',
       link: '#'
    },
-   {
-      name: 'Login',
-      link: '#'
-   },
-   {
-      name: 'Sign up',
-      link: '#'
-   }
+   // {
+   //    name: 'Login',
+   //    link: '#'
+   // },
+   // {
+   //    name: 'Sign up',
+   //    link: '#'
+   // }
 ]
 const Header = () => {
    const [selectedMenu, setSelectedMenu] = useState('Products')
    const [bagItemNumber, setBagItemNumber] = useState(0)
+   const [showMobileMenu, setShowMobileMenu] = useState(false)
    return (
-      <div className="   h-16 pl-[5vw] pr-[5vw] bg-neutral-300  z-10 fixed w-[100vw] " >
+      <div className="   h-16 sm:pl-[5vw] sm:pr-[5vw] bg-neutral-300  z-10 fixed w-[100vw] " >
+         <Hamberger selectedMenu={selectedMenu} showMobileMenu={showMobileMenu} setShowMobileMenu={setShowMobileMenu} setSelectedMenu={setSelectedMenu} />
          <div className=' flex justify-between items-center p-5 ' >
-            <p className=' font-body text-main_color font-extrabold text-xl ' >E-COMMERCE</p>
+            <p className=' font-body text-main_color font-extrabold text-xl hidden sm:block ' >E-COMMERCE</p>
             <div className=' hidden sm:flex gap-10 items-start  ' >
                {
                   menuItems.map((elt, index) => {
@@ -47,18 +50,27 @@ const Header = () => {
                   })
                }
             </div>
+            <MdOutlineMenu
+               onClick={() => {
+                  showMobileMenu ? setShowMobileMenu(false) : setShowMobileMenu(true)
+               }}
+               className='sm:hidden cursor-pointer '
+               size={30}
+            />
+
+
+
             <div className=' flex items-center justify-center gap-5' >
                <div className=' flex justify-center items-center gap-5 ' >
                   <FiSearch size={20} />
                   <HiOutlineUserCircle size={25} />
                   <div className=' flex ' >
-                     <FaShoppingBag size={20} className=' animate-bounce '  />
+                     <FaShoppingBag size={20} className=' animate-bounce ' />
                      {/* <p>{bagItemNumber}</p> */}
                   </div>
 
                </div>
             </div>
-            <MdOutlineMenu color='#fff' className='sm:hidden cursor-pointer ' size={30} />
          </div>
       </div>
    )
