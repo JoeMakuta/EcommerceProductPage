@@ -7,14 +7,25 @@ import ZoomImage from './zoomImage'
 import ImageModal from "./imageModal"
 
 const Product = () => {
-   const [product, setProduct] = useState(products[2])
+   const [product, setProduct] = useState(products[3])
    const [showDescription, setShowDescription] = useState(false)
+   const [showModal, setShowModal] = useState(false)
    const [rating, setRating] = useState(Math.round(product.rating.rate))
 
    return (
       <div className="flex flex-col sm:flex-row  m-auto w-[85vw] sm:w-[80vw] gap-5 sm:gap-20 justify-center items-center pt-24 " >
-         <img src={product.image} className='hover:scale-105 transition-transform cursor-zoom-in w-full sm:w-[35vw]' alt="" />
-         <ImageModal image={product.image} />
+         {/* <img
+            src={product.image}
+            className='hover:scale-105 hover:animate-pulse transition-transform cursor-zoom-in w-full sm:w-[35vw]' alt=""
+            onClick={() => {
+               showModal ? setShowModal(false) : setShowModal(true)
+            }}
+         /> */}
+         {/* <div className={showModal ? 'block' : 'hidden'} >
+            <ImageModal showModal={showModal} setShowModal={setShowModal} image={product.image} />
+         </div> */}
+         <ZoomImage image={product.image} />
+
          <div className="flex flex-col justify-center items-center gap-4 sm:gap-9" >
             <div className=" flex flex-col items-center gap-1 sm:gap-4 " >
 
