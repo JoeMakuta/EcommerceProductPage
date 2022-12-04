@@ -7,8 +7,8 @@ import ZoomImage from './zoomImage'
 import ImageModal from "./imageModal"
 
 const Product = () => {
-   const [product, setProduct] = useState(products[3])
-   const [showDescription, setShowDescription] = useState(false)
+   const [product, setProduct] = useState(products[2])
+   const [showDescription, setShowDescription] = useState(true)
    const [showModal, setShowModal] = useState(false)
    const [rating, setRating] = useState(Math.round(product.rating.rate))
 
@@ -34,7 +34,7 @@ const Product = () => {
                </div>
                <p className=" underline text-green " >
                   <p className=" cursor-pointer " >Available in {product.colors.length} Colors</p>
-                  {/* <div className=" flex gap-1 " >
+                  <div className=" flex gap-1 " >
                      {
                         product.colors.map((elt, index) => {
                            return (
@@ -47,7 +47,7 @@ const Product = () => {
                         })
                      }
 
-                  </div> */}
+                  </div>
                </p>
 
                <div className=" flex " >{
