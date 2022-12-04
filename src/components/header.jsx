@@ -26,7 +26,7 @@ export const menuItems = [
 const Header = () => {
    const [selectedMenu, setSelectedMenu] = useState('Products')
    const [bagItemNumber, setBagItemNumber] = useState(0)
-   const [showMobileMenu, setShowMobileMenu] = useState(false)
+   const [showMobileMenu, setShowMobileMenu] = useState(true)
    return (
       <div className="   h-16 sm:pl-[5vw] sm:pr-[5vw] bg-neutral-300  z-10 fixed w-[100vw] " >
          <Hamberger selectedMenu={selectedMenu} showMobileMenu={showMobileMenu} setShowMobileMenu={setShowMobileMenu} setSelectedMenu={setSelectedMenu} />
