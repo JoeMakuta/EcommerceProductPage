@@ -51,20 +51,16 @@ const ZoomImage = ({ image }) => {
          const { width, height } = canvasRef.current;
          const context = canvasRef.current.getContext("2d");
 
-         // Set canvas dimensions
          canvasRef.current.width = width;
          canvasRef.current.height = height;
 
-         // Clear canvas and scale it
+         
          context.translate(-offset.x, -offset.y);
          context.scale(zoom, zoom);
          context.clearRect(0, 0, width, height);
-
-         // Make sure we're zooming to the center
+  
          const x = (context.canvas.width / zoom - background.width) / 2;
          const y = (context.canvas.height / zoom - background.height) / 2;
-
-         // Draw image
          context.drawImage(background, x, y);
       }
    };
@@ -73,12 +69,10 @@ const ZoomImage = ({ image }) => {
       observer.current = new ResizeObserver((entries) => {
          entries.forEach(({ target }) => {
             const { width, height } = background;
-            // If width of the container is smaller than image, scale image down
-            if (target.clientWidth < width) {
-               // Calculate scale
-               const scale = target.clientWidth / width;
 
-               // Redraw image
+            if (target.clientWidth < width) {
+               
+               const scale = target.clientWidth / width;
                canvasRef.current.width = width * scale;
                canvasRef.current.height = height * scale;
                canvasRef.current
@@ -97,12 +91,9 @@ const ZoomImage = ({ image }) => {
 
       if (canvasRef.current) {
          background.onload = () => {
-            // Get the image dimensions
             const { width, height } = background;
             canvasRef.current.width = width;
             canvasRef.current.height = height;
-
-            // Set image as background
             canvasRef.current.getContext("2d").drawImage(background, 0, 0);
          };
       }
@@ -113,7 +104,7 @@ const ZoomImage = ({ image }) => {
    }, [zoom, offset]);
 
    return (
-      <div className='hover:scale-105 transition-transform cursor-grab w-full sm:w-[35vw]' ref={containerRef}>
+      <div className='cursor-grab w-full sm:w-full sm:h-[90vh]' ref={containerRef}>
          <canvas
             onMouseDown={handleMouseDown}
             onMouseUp={handleMouseUp}
